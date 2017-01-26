@@ -7,6 +7,7 @@ package cqy78checkers;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  *
@@ -42,7 +43,29 @@ public class CheckerBoard {
     }
 
     public AnchorPane build() {
-        return null;
+        AnchorPane anchorPane = new AnchorPane();
+        for(int row = 0; row < numRows; row++) {
+            // For Each Column in Row
+            for(int col = 0; col < numCols; col++) {
+                // Create Rectangle
+                Rectangle newRect = new Rectangle(getRectangleWidth(), getRectangleHeight());
+                
+                // Determine Color
+                if((row + col) % 2 == 0) {
+                    newRect.setFill(lightColor);
+                } else {
+                    newRect.setFill(darkColor);
+                }
+                
+                // Position Rectangle
+                AnchorPane.setTopAnchor(newRect, (row * getRectangleHeight()));
+                AnchorPane.setLeftAnchor(newRect, (col * getRectangleWidth()));
+                
+                // Add rectangle to anchorpane
+                anchorPane.getChildren().add(newRect);
+            }
+        }
+        return anchorPane;
     }
 
     public AnchorPane getBoard() {
