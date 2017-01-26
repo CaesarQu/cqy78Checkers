@@ -44,25 +44,25 @@ public class CheckerBoard {
 
     public AnchorPane build() {
         AnchorPane anchorPane = new AnchorPane();
+        double recWidth = this.getRectangleWidth();
+        double recHeight = this.getRectangleHeight();
         for(int row = 0; row < numRows; row++) {
-            // For Each Column in Row
             for(int col = 0; col < numCols; col++) {
-                // Create Rectangle
-                Rectangle newRect = new Rectangle(getRectangleWidth(), getRectangleHeight());
+                Rectangle rectangle = new Rectangle(recWidth, recHeight);
                 
-                // Determine Color
+                //change color
                 if((row + col) % 2 == 0) {
-                    newRect.setFill(lightColor);
+                    rectangle.setFill(lightColor);
                 } else {
-                    newRect.setFill(darkColor);
+                    rectangle.setFill(darkColor);
                 }
                 
-                // Position Rectangle
-                AnchorPane.setTopAnchor(newRect, (row * getRectangleHeight()));
-                AnchorPane.setLeftAnchor(newRect, (col * getRectangleWidth()));
+                // set the rectangle position
+                AnchorPane.setTopAnchor(rectangle, (row * recWidth));
+                AnchorPane.setLeftAnchor(rectangle, (col * recHeight));
                 
                 // Add rectangle to anchorpane
-                anchorPane.getChildren().add(newRect);
+                anchorPane.getChildren().add(rectangle);
             }
         }
         return anchorPane;
@@ -104,4 +104,13 @@ public class CheckerBoard {
         return Math.ceil(boardHeight / numRows);
     }
 
+    public void setLightColor(Color lightColor) {
+        this.lightColor = lightColor;
+    }
+
+    public void setDarkColor(Color darkColor) {
+        this.darkColor = darkColor;
+    }
+
+    
 }
