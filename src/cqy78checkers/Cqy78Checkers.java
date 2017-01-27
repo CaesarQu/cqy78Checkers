@@ -19,7 +19,7 @@ public class Cqy78Checkers extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-       FXMLLoader loader = new FXMLLoader(getClass().getResource("CheckersGame.fxml"));
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("CheckerBoard.fxml"));
         Parent root = loader.load();
         CheckerBoardController controller = loader.getController();
         

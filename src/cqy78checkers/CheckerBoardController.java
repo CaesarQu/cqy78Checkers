@@ -25,16 +25,16 @@ import javafx.scene.paint.Color;
  */
 public class CheckerBoardController implements Initializable {
 
-    CheckerBoard checkerBoard;
+    private CheckerBoard checkerBoard;
 
     @FXML
-    VBox vbox;
+    private VBox vbox;
 
     @FXML
-    AnchorPane anchorPane;
+    private AnchorPane anchorPane;
 
     @FXML
-    MenuBar menuBar;
+    private MenuBar menuBar;
 
     /**
      * Initializes the controller class.
@@ -48,6 +48,7 @@ public class CheckerBoardController implements Initializable {
         this.checkerBoard = new CheckerBoard(8, 8, anchorPane.getWidth(), anchorPane.getHeight());
         checkerBoard.setDarkColor(Color.DARKBLUE);
         checkerBoard.setLightColor(Color.SKYBLUE);
+        System.out.println("aaa");
 
         this.anchorPane.widthProperty().addListener((observable, oldValue, newValue) -> {
             drawAnchorPane();

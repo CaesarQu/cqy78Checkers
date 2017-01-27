@@ -58,8 +58,8 @@ public class CheckerBoard {
                 }
                 
                 // set the rectangle position
-                AnchorPane.setTopAnchor(rectangle, (row * recWidth));
-                AnchorPane.setLeftAnchor(rectangle, (col * recHeight));
+                anchorPane.setTopAnchor(rectangle, (row * recWidth));
+                anchorPane.setLeftAnchor(rectangle, (col * recHeight));
                 
                 // Add rectangle to anchorpane
                 anchorPane.getChildren().add(rectangle);
