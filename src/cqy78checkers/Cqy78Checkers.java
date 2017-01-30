@@ -30,7 +30,7 @@ public class Cqy78Checkers extends Application {
         stage.setScene(scene);
         stage.show();
         
-        controller.ready(scene);
+        controller.ready(stage);
     }
 
     /**

@@ -22,6 +22,8 @@ public class CheckerBoard {
     private Color lightColor;
     private Color darkColor;
     
+    private AnchorPane anchorPane;
+    
     //private double rectangleWidth;
     //private double rectangleHeight;
     
@@ -46,6 +48,7 @@ public class CheckerBoard {
         AnchorPane anchorPane = new AnchorPane();
         double recWidth = this.getRectangleWidth();
         double recHeight = this.getRectangleHeight();
+        System.out.println("recWidth" +recWidth+ "recHeight"+recHeight);
         for(int row = 0; row < numRows; row++) {
             for(int col = 0; col < numCols; col++) {
                 Rectangle rectangle = new Rectangle(recWidth, recHeight);
@@ -58,8 +61,8 @@ public class CheckerBoard {
                 }
                 
                 // set the rectangle position
-                anchorPane.setTopAnchor(rectangle, (row * recWidth));
-                anchorPane.setLeftAnchor(rectangle, (col * recHeight));
+                AnchorPane.setTopAnchor(rectangle, (row * recWidth));
+                AnchorPane.setLeftAnchor(rectangle, (col * recHeight));
                 
                 // Add rectangle to anchorpane
                 anchorPane.getChildren().add(rectangle);
@@ -69,7 +72,7 @@ public class CheckerBoard {
     }
 
     public AnchorPane getBoard() {
-        return null;
+        return anchorPane != null ? anchorPane : null;
     }
 
     public int getNumRows() {
@@ -112,5 +115,14 @@ public class CheckerBoard {
         this.darkColor = darkColor;
     }
 
+    public void setNumRows(int numRows) {
+        this.numRows = numRows;
+    }
+
+    public void setNumCols(int numCols) {
+        this.numCols = numCols;
+    }
+
+    
     
 }
